@@ -57,6 +57,8 @@ module Apipie
       if route.defaults[:controller]
         (route.defaults[:controller].camelize + "Controller").constantize
       end
+    rescue
+      # some errors in the routes will not stop us here: just ignoring
     end
 
     def routes_for_action(controller, method, args)
